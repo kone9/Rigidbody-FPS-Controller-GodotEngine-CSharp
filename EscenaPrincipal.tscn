@@ -1,0 +1,157 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://codigos/PersonajeRigidBody.cs" type="Script" id=1]
+[ext_resource path="res://codigos/PlayerLook.cs" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+mid_height = 1.8
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 0.1, 0.1, 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.105882, 0.188235, 0.333333, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 100, 2, 100 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 50, 1, 50 )
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[node name="EscenaPrincipal" type="Spatial"]
+
+[node name="PersonajeRigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
+continuous_cd = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource( 1 )
+MovementMultiplier = 100.0
+
+[node name="PlayerLook" type="Node" parent="PersonajeRigidBody"]
+script = ExtResource( 2 )
+senX = 0.01
+senY = 0.1
+multiplier = 0.01
+
+[node name="CollisionShape" type="CollisionShape" parent="PersonajeRigidBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CameraPersonaje" type="Camera" parent="PersonajeRigidBody" groups=[
+"CameraPersonaje",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="PersonajeRigidBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="PersonajeRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Suelo" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Suelo"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Suelo/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.3, 0 )
+shadow_enabled = true
+
+[node name="Cubos" type="Spatial" parent="."]
+
+[node name="Cubo2" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 1, -9.7 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo2/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo3" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.8, 1, -9.7 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo3/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo4" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 1, 10.9 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo4/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo5" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9, 1, 2.5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo5/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo6" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 1, 6.9 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo6/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo7" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4, 1, -16.7 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo7/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Cubo9" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7, 1, -32.7 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo9"]
+
+[node name="Cubo10" type="MeshInstance" parent="Cubos"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3, 1, -12.1 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Cubos/Cubo10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cubos/Cubo10/StaticBody"]
+shape = SubResource( 7 )
