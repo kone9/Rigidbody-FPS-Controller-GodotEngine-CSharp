@@ -1,5 +1,5 @@
 # Proyecto donde creo un "RIGIDBODY" controlador de personaje
-## el proyecto fue copiado de un tutorial de unity3D y desarrollado en Godot Engine.
+## el proyecto fue copiado de un tutorial de unity3D y desarrollado en Godot Engine versión C#.
 
 
 
