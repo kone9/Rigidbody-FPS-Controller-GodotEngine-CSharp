@@ -1,5 +1,6 @@
-# Proyecto donde creo un "RIGIDBODY" controlador de personaje
+# Proyecto donde creo un "RIGIDBODY" controlador de personaje "Rigidbody FPS Controller"
 ## el proyecto fue copiado de un tutorial de unity3D y desarrollado en Godot Engine versión C#.
+
 
 
 
